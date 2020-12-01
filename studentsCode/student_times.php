@@ -25,11 +25,7 @@
     <div style="margin-top: 20px" class="container">
         <h1>Create Schedule</h1>
         <!-- styling of the form for bootstrap https://getbootstrap.com/docs/4.5/components/forms/ -->
-        <form action="create_student.php" method="post">
-        <div class="form-group">
-                <label for="id">ID</label>
-                <input class="form-control" type="text" id="id" name="id">
-            </div>
+        <form action="student_times.php" method="post">
             <div class="form-group">
                 <label for="id">Day of the Week</label>
                 <input class="form-control" type="text" id="day_of_week" name="day_of_week">
