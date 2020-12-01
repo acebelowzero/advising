@@ -28,7 +28,7 @@
         <h1>Schedule Menu: </h1>
 
         <a href="student_times.php">Create Schedule</a><br>
-        <a href="view_students.php">View, Modify, and Delete Students</a><br>
+        <a href="view_students.php">View, Modify, and Delete Student</a><br>
 
     </div>
 

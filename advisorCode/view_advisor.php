@@ -35,7 +35,7 @@ require_once('../validate_session.php');
 
     <?php 
     $Sid = $_COOKIE["USER_ID"];
-    $sql = "SELECT * FROM advisor_schedule where ADid = $Sid";
+    $sql = "SELECT * FROM advisor_availability2 where ADid = $Sid";
 
     if ($result = $conn->query($sql)) {
     ?>
@@ -49,10 +49,10 @@ require_once('../validate_session.php');
                 while ($row = $result->fetch_row()) {
                 ?>
                     <tr>
-                        <td><?php printf("%s", $row[1]); ?></td>
+                        <td><?php printf("%s", $row[0]); ?></td>
                         <td><?php printf("%s", $row[2]); ?></td>
-                        <td><a href="update_advisor_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
-                        <td><a href="delete_advisor.php?Sid=<?php echo $row[0] ?>">Delete</a></td>
+                        <td><a href="update_advisor_interface.php?ADid=<?php echo $row[0] ?>">Update</a></td>
+                        <td><a href="delete_advisor.php?ADid=<?php echo $row[0] ?>">Delete</a></td>
                     </tr>
                 <?php
                 }
@@ -63,7 +63,7 @@ require_once('../validate_session.php');
     }
     ?>
     <!-- Link to return to student_menu-->
-    <a href="advisor_menu.php">Back to Advisor Menu</a><br>
+    <a href="advisor_schedule.php">Back to Advisor Menu</a><br>
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

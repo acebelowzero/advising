@@ -27,7 +27,7 @@
     <div class="container">
         <h1>Student Menu: </h1>
 
-        <a href="create_student.php">Create Student</a><br>
+        <a href="student_times.php">Create Schedule</a><br>
         <a href="view_students.php">View, Modify, and Delete Students</a><br>
 
     </div>

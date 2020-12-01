@@ -35,7 +35,7 @@ else {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CS4342 Student Update</title>
+    <title>CS4342 Advisor Update</title>
 
     <!-- Importing Bootstrap CSS library https://getbootstrap.com/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -64,7 +64,7 @@ else {
         </form>
         <div>
             <br>
-            <a href="index.php">Back to Advisor Menu</a></br>
+            <a href="advisor_schedule.php">Back to Advisor Menu</a></br>
         </div>
 
         <!-- jQuery and JS bundle w/ Popper.js -->

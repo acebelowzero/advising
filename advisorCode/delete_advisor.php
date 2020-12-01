@@ -18,13 +18,13 @@ require_once('../config.php');
 require_once('../validate_session.php');
 
 if (isset($_GET['ADid'])){
-
+    
     $userid = $_GET['ADid'];
-    $query = "DELETE from Advisor where ADid = $userid";
+    $query = "DELETE from Advisor_Availability2 where ADid = $userid";
 
     if ($conn->query($query) === TRUE) {
-        echo "Advisor deleted successfuly";
-        header("Location: view_advisor.php");
+        echo "Advisor time deleted successfuly";
+        header("Location: advisor_schedule.php");
      } else {
          echo "Error: " . $query . "<br>" . $conn->error;
      }

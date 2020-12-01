@@ -41,7 +41,7 @@
         </form>
         <div>
             <br>
-            <a href="student_menu.php">Back to Student Menu</a></br>
+            <a href="student_schedule.php">Back to Student Menu</a></br>
         </div>
 
         <!-- jQuery and JS bundle w/ Popper.js -->

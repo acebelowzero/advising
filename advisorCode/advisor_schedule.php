@@ -8,7 +8,15 @@
  *
  */
 -->
+<?php
+/*
+* Reference for tables: https://getbootstrap.com/docs/4.5/content/tables/
+*/
 
+session_start();
+require_once('../config.php');
+require_once('../validate_session.php');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -25,11 +33,39 @@
 <body>
     <!-- Displaying a menu for CRUD operations in Student table -->
     <div class="container">
-        <h1>Schedule Menu: </h1>
+        <h1>Advisor Menu: </h1>
 
         <a href="advisor_times.php">Create Schedule</a><br>
-        <a href="view_advisor.php">View, Modify, and Delete Advisor</a><br>
+        <a href="view_advisor.php">View, Modify, and Delete Advisor Schedule</a><br>
+        <h2>Appointments</h2>
+        <?php 
+    $Sid = $_COOKIE["USER_ID"];
+    $sql = "SELECT * FROM Appointments where ADid = $Sid";
 
+    if($result = $conn->query($sql) ){
+    ?>
+        <table class="table" width=50%>
+            <thead>
+                <td> Student ID</td>
+                <td> Date </td>
+            </thead>
+            <tbody>
+                <?php
+                while ($row = $result->fetch_row()) {
+                ?>
+                    <tr>
+                        <td><?php printf("%s", $row[2]); ?></td>
+                        <td><?php printf("%s", $row[4]); ?></td>
+                        
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    <?php
+    }
+    ?>
     </div>
 
     <!-- jQuery and JS bundle w/ Popper.js -->

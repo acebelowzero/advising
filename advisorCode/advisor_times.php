@@ -41,7 +41,7 @@
         </form>
         <div>
             <br>
-            <a href="advisor_menu.php">Back to Advisor Menu</a></br>
+            <a href="advisor_schedule.php">Back to Advisor Menu</a></br>
         </div>
 
         <!-- jQuery and JS bundle w/ Popper.js -->
@@ -61,11 +61,11 @@
              */
             $ADdayOfWeek = isset($_POST['day_of_week']) ? $_POST['day_of_week'] : " ";  
             $ADid = $_COOKIE['USER_ID'];
-            $ADtime = isset($_POST['first_name']) ? $_POST['first_name'] : " ";
+            $ADtime = isset($_POST['time']) ? $_POST['time'] : " ";
             
             //Insert into Student table;
             
-            $queryStudent  = "INSERT INTO Advisor_Availability (AADayOfWeek,ADid,AATime)
+            $queryStudent  = "INSERT INTO Advisor_Availability2 (AADayOfWeek,ADid,AATime)
                         VALUES ('".$ADdayOfWeek."','".$ADid."', '".$ADtime."');";
 
             // The query sent to the DB can be printed by not commenting the following row
