@@ -34,7 +34,7 @@ require_once('../validate_session.php');
 <body>
     <h3> Matching Appointments</h3>
     <p>Press Schedule to schedule an Appointment</p>
-    <?php 
+    <?php
     $sql = "SELECT * FROM matching_appoints";
     if ($result = $conn->query($sql)) {
     ?>
@@ -51,16 +51,18 @@ require_once('../validate_session.php');
                 while ($row = $result->fetch_row()) {
                 ?>
                     <tr>
-                    <td><?php printf("%s", $row[0]); ?></td>
-                        <td><?php printf("%s", $row[1]); ?></td>
-                        <td><?php printf("%s", $row[2]);  printf(" "); printf("%s", $row[3]); ?></td>
-                        <td><?php printf("%s", $row[4]);  printf(" "); printf("%s", $row[5]);  ?></td>
-                        <!-- <td><?php printf("%s", $row[2]); ?></td> -->
-                        <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Schedule</a></td>
-                        <!-- <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
-                        <td><a href="delete_student.php?Sid=<?php echo $row[0] ?>">Delete</a></td> -->
+                        <td><?php printf("%s", $row[2]); ?></td>
+                        <td><?php printf("%s", $row[3]); ?></td>
+                        <td><?php printf("%s", $row[4]);
+                            printf(" ");
+                            printf("%s", $row[5]); ?></td>
+                        <td><?php printf("%s", $row[6]);
+                            printf(" ");
+                            printf("%s", $row[7]);  ?></td>
+                        <td><input type="submit" onsubmit="sendDataOne()" name="test" id="test" value="Schedule" /></td>
                     </tr>
                 <?php
+//ignore
                 }
                 ?>
             </tbody>
@@ -69,7 +71,7 @@ require_once('../validate_session.php');
     }
     ?>
     <!-- Link to return to student_menu-->
-    <a href="student_menu.php">Back to Student Menu</a><br>
+    <a href="admin_menu.php">Back to Admin Menu</a><br>
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

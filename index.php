@@ -92,11 +92,13 @@ if (!empty($_POST)) {
       // But it will not redirect to the student_menu file automatically.
       if ($input_username[0] == "7") {
         //header("Location: studentsCode/student_menu.php");
+        header("Location: admin/admin_menu.php");
         echo ("you are a admin");
       } else if ($input_username[0] == "8") {
         echo ("student");
         header("Location: studentsCode/student_schedule.php");
       } else if ($input_username[0] == "9") {
+        header("Location: advisorCode/advisor_schedule.php");
         echo ("you are a advisor");
       } else {
         echo ("student does not exist");
