@@ -24,7 +24,7 @@
 
 <body>
   <div style="margin-top: 20px" class="container">
-    
+
     <h1>User Login</h1>
     <form action="index.php" method="post">
       <div class="form-group">
@@ -40,7 +40,7 @@
       </div>
     </form>
     <a href="create_user.php">Don't have an account? Create one now!</a><br><br>
-    
+
   </div>
 
   <!-- jQuery and JS bundle w/ Popper.js -->
@@ -61,24 +61,45 @@ $_SESSION['logged_in'] = false;
 
 if (!empty($_POST)) {
   if (isset($_POST['Submit'])) {
+
     $input_username = isset($_POST['username']) ? $_POST['username'] : " ";
     $input_password = isset($_POST['password']) ? $_POST['password'] : " ";
-
-    $queryUser = "SELECT * FROM User  WHERE Uusername='" . $input_username . "' AND UPassword='" . $input_password . "';";
-    $resultUser = $conn->query($queryUser);
+    $resultUser = NULL;
+    if ($input_username[0] == "7") {
+      //header("Location: studentsCode/student_menu.php");
+      $queryUser = "SELECT * FROM Admin WHERE Aid='" . $input_username . "' AND Password='" . $input_password . "';";
+      $resultUser = $conn->query($queryUser);
+      echo ("you are a admin");
+    } else if ($input_username[0] == "8") {
+      $queryUser = "SELECT * FROM Student WHERE Sid='" . $input_username . "' AND Password='" . $input_password . "';";
+      $resultUser = $conn->query($queryUser);
+    }else if ($input_username[0] == "9") {
+      $queryUser = "SELECT * FROM Advisor WHERE ADid='" . $input_username . "' AND Password='" . $input_password . "';";
+      $resultUser = $conn->query($queryUser);
+    }else {
+      echo "Nothing was entered ";
+    }
 
     if ($resultUser->num_rows > 0) {
       //if there is a result, that means that the user was found in the database
       $_SESSION['user'] = $input_username;
       $_SESSION['logged_in'] = true;
-      
-      echo "Session logged_in is: ".$_SESSION['logged_in'];
-      
+
+      echo "Session logged_in is: " . $_SESSION['logged_in'];
+
       // You can comment the next line (header) to check if the user was successfully logged in. 
       // But it will not redirect to the student_menu file automatically.
-      header("Location: studentsCode/student_menu.php");
-    } else {
-      echo "User not found.";
+      if ($input_username[0] == "7") {
+        //header("Location: studentsCode/student_menu.php");
+        echo ("you are a admin");
+      } else if ($input_username[0] == "8") {
+        echo ("student");
+        header("Location: studentsCode/student_schedule.php");
+      } else if ($input_username[0] == "9") {
+        echo ("you are a advisor");
+      } else {
+        echo ("student does not exist");
+      }
     }
     die();
   }
