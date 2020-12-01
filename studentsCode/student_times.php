@@ -27,12 +27,16 @@
         <!-- styling of the form for bootstrap https://getbootstrap.com/docs/4.5/components/forms/ -->
         <form action="create_student.php" method="post">
         <div class="form-group">
-                <label for="id">Day of the Week</label>
+                <label for="id">ID</label>
                 <input class="form-control" type="text" id="id" name="id">
             </div>
             <div class="form-group">
+                <label for="id">Day of the Week</label>
+                <input class="form-control" type="text" id="day_of_week" name="day_of_week">
+            </div>
+            <div class="form-group">
                 <label for="first_name">Time</label>
-                <input class="form-control" type="text" id="first_name" name="first_name">
+                <input class="form-control" type="text" id="time" name="time">
             </div>
             
             <div class="form-group">
@@ -59,15 +63,14 @@
             /**
              * Grab information from the form submission and store values into variables.
              */
-            $sid = isset($_POST['id']) ? $_POST['id'] : " ";  
-            $sfirstName = isset($_POST['first_name']) ? $_POST['first_name'] : " ";
-            $smiddleName = isset($_POST['middle_name']) ? $_POST['middle_name'] : " ";
-            $slastName = isset($_POST['last_name']) ? $_POST['last_name'] : " ";
+            $sdayOfWeek = isset($_POST['day_of_week']) ? $_POST['day_of_week'] : " ";  
+            $sid = isset($_POST['id']) ? $_POST['id'] : " ";
+            $stime = isset($_POST['first_name']) ? $_POST['first_name'] : " ";
             
             //Insert into Student table;
             
-            $queryStudent  = "INSERT INTO Student (Sid,SfirstName,SmiddleName,SlastName)
-                        VALUES ('".$sid."', '".$sfirstName."', '".$smiddleName."', '".$slastName."');";
+            $queryStudent  = "INSERT INTO Student_Availability (SADayOfWeek,Sid,SATime)
+                        VALUES ('".$sdayOfWeek."','".$sid."', '".$stime."');";
 
             // The query sent to the DB can be printed by not commenting the following row
             //echo $queryStudent;
