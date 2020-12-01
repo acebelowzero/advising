@@ -26,10 +26,6 @@
         <h1>Create Schedule</h1>
         <!-- styling of the form for bootstrap https://getbootstrap.com/docs/4.5/components/forms/ -->
         <form action="advisor_times.php" method="post">
-        <div class="form-group">
-                <label for="id">ID</label>
-                <input class="form-control" type="text" id="id" name="id">
-            </div>
             <div class="form-group">
                 <label for="id">Day of the Week</label>
                 <input class="form-control" type="text" id="day_of_week" name="day_of_week">
@@ -64,7 +60,7 @@
              * Grab information from the form submission and store values into variables.
              */
             $ADdayOfWeek = isset($_POST['day_of_week']) ? $_POST['day_of_week'] : " ";  
-            $ADid = isset($_POST['id']) ? $_POST['id'] : " ";
+            $ADid = $_COOKIE['USER_ID'];
             $ADtime = isset($_POST['first_name']) ? $_POST['first_name'] : " ";
             
             //Insert into Student table;

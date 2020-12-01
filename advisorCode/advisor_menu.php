@@ -27,8 +27,38 @@
     <div class="container">
         <h1>Advisor Menu: </h1>
 
-        <a href="create_advisor.php">Create Advisor</a><br>
-        <a href="view_advisor.php">View, Modify, and Delete Advisor</a><br>
+        <a href="advisor_times.php">Create Advisor Schedule</a><br>
+        <a href="view_advisor.php">View, Modify, and Delete Advisor Schedule</a><br>
+        <h3>Appointments: </h3>
+        <?php
+        $ADid = $_COOKIE["USER_ID"];
+        $sql = "SELECT * FROM appointments where ADid = $ADid";
+        if ($result = $conn->query($sql)) {
+        ?>
+            <table class="table" width=50%>
+                <thead>
+                    <td> Day</td>
+                    <td> Time </td>
+                </thead>
+                <tbody>
+                    <?php
+                    while ($row = $result->fetch_row()) {
+                    ?>
+                        <tr>
+                            <td><?php printf("%s", $row[1]); ?></td>
+                            <td><?php printf("%s", $row[2]); ?></td>
+                            <td><a href="update_advisor_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
+                            <td><a href="delete_advisor.php?Sid=<?php echo $row[0] ?>">Delete</a></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        <?php
+        }
+        ?>
+
 
     </div>
 

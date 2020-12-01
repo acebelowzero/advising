@@ -32,6 +32,8 @@ require_once('../validate_session.php');
 </head>
 
 <body>
+    <h3> Matching Appointments</h3>
+    <p>Press Schedule to schedule an Appointment</p>
     <?php 
     $sql = "SELECT * FROM matching_appoints";
     if ($result = $conn->query($sql)) {
@@ -40,6 +42,9 @@ require_once('../validate_session.php');
             <thead>
                 <td> Day</td>
                 <td>Time</td>
+                <td>Advisor Name</td>
+                <td>Student Name</td>
+                <td>Option</td>
             </thead>
             <tbody>
                 <?php
@@ -48,6 +53,8 @@ require_once('../validate_session.php');
                     <tr>
                     <td><?php printf("%s", $row[0]); ?></td>
                         <td><?php printf("%s", $row[1]); ?></td>
+                        <td><?php printf("%s", $row[2]);  printf(" "); printf("%s", $row[3]); ?></td>
+                        <td><?php printf("%s", $row[4]);  printf(" "); printf("%s", $row[5]);  ?></td>
                         <!-- <td><?php printf("%s", $row[2]); ?></td> -->
                         <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Schedule</a></td>
                         <!-- <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>

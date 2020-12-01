@@ -32,24 +32,25 @@ require_once('../validate_session.php');
 </head>
 
 <body>
-    <?php $sql = "SELECT * FROM Advisor";
+
+    <?php 
+    $Sid = $_COOKIE["USER_ID"];
+    $sql = "SELECT * FROM advisor_schedule where ADid = $Sid";
+
     if ($result = $conn->query($sql)) {
     ?>
         <table class="table" width=50%>
             <thead>
-                <td> ID</td>
-                <td> First Name</td>
-                <td> Last name </td>
+                <td> Day</td>
+                <td> Time </td>
             </thead>
             <tbody>
                 <?php
                 while ($row = $result->fetch_row()) {
                 ?>
                     <tr>
-                    <td><?php printf("%s", $row[0]); ?></td>
                         <td><?php printf("%s", $row[1]); ?></td>
                         <td><?php printf("%s", $row[2]); ?></td>
-                        <td><?php printf("%s", $row[3]); ?></td>
                         <td><a href="update_advisor_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
                         <td><a href="delete_advisor.php?Sid=<?php echo $row[0] ?>">Delete</a></td>
                     </tr>
@@ -62,7 +63,7 @@ require_once('../validate_session.php');
     }
     ?>
     <!-- Link to return to student_menu-->
-    <a href="student_menu.php">Back to Student Menu</a><br>
+    <a href="advisor_menu.php">Back to Advisor Menu</a><br>
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

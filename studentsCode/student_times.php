@@ -60,13 +60,13 @@
              * Grab information from the form submission and store values into variables.
              */
             $sdayOfWeek = isset($_POST['day_of_week']) ? $_POST['day_of_week'] : " ";  
-            $sid = isset($_POST['id']) ? $_POST['id'] : " ";
+            $sid =  $_COOKIE["USER_ID"];
             $stime = isset($_POST['time']) ? $_POST['time'] : " ";
-            $stid =  $_COOKIE["USER_ID"];
+            
             //Insert into Student table;
             
             $queryStudent  = "INSERT INTO Student_Availability (SADayOfWeek,Sid,SATime)
-                        VALUES ('".$sdayOfWeek."','".$stid."', '".$stime."');";
+                        VALUES ('".$sdayOfWeek."','".$sid."', '".$stime."');";
 
             // The query sent to the DB can be printed by not commenting the following row
             //echo $queryStudent;
