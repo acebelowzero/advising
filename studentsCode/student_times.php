@@ -65,17 +65,17 @@
              */
             $sdayOfWeek = isset($_POST['day_of_week']) ? $_POST['day_of_week'] : " ";  
             $sid = isset($_POST['id']) ? $_POST['id'] : " ";
-            $stime = isset($_POST['first_name']) ? $_POST['first_name'] : " ";
-            
+            $stime = isset($_POST['time']) ? $_POST['time'] : " ";
+            $stid =  $_COOKIE["USER_ID"];
             //Insert into Student table;
             
             $queryStudent  = "INSERT INTO Student_Availability (SADayOfWeek,Sid,SATime)
-                        VALUES ('".$sdayOfWeek."','".$sid."', '".$stime."');";
+                        VALUES ('".$sdayOfWeek."','".$stid."', '".$stime."');";
 
             // The query sent to the DB can be printed by not commenting the following row
             //echo $queryStudent;
             if ($conn->query($queryStudent) === TRUE) {
-            echo "<br> New record created successfully for student id ".$sid;
+            echo "<br> New record created successfully for student id ".$stid;
             } else {
                 echo "<br> The record was not created, the query: <br>" . $queryStudent . "  <br> Generated the error <br>" . $conn->error;
             }

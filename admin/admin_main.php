@@ -33,14 +33,13 @@ require_once('../validate_session.php');
 
 <body>
     <?php 
-    $test = "SELECT * FROM matching_appoints";
-    if ($result = $conn->query($student)) {
+    $sql = "SELECT * FROM matching_appoints";
+    if ($result = $conn->query($sql)) {
     ?>
         <table class="table" width=50%>
             <thead>
                 <td> Day</td>
-                <td> Student ID</td>
-                <td> Time</td>
+                <td>Time</td>
             </thead>
             <tbody>
                 <?php
@@ -49,9 +48,10 @@ require_once('../validate_session.php');
                     <tr>
                     <td><?php printf("%s", $row[0]); ?></td>
                         <td><?php printf("%s", $row[1]); ?></td>
-                        <td><?php printf("%s", $row[2]); ?></td>
-                        <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
-                        <td><a href="delete_student.php?Sid=<?php echo $row[0] ?>">Delete</a></td>
+                        <!-- <td><?php printf("%s", $row[2]); ?></td> -->
+                        <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Schedule</a></td>
+                        <!-- <td><a href="update_student_interface.php?Sid=<?php echo $row[0] ?>">Update</a></td>
+                        <td><a href="delete_student.php?Sid=<?php echo $row[0] ?>">Delete</a></td> -->
                     </tr>
                 <?php
                 }

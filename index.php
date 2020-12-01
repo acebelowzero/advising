@@ -84,6 +84,7 @@ if (!empty($_POST)) {
       //if there is a result, that means that the user was found in the database
       $_SESSION['user'] = $input_username;
       $_SESSION['logged_in'] = true;
+      setcookie("USER_ID", $input_username);
 
       echo "Session logged_in is: " . $_SESSION['logged_in'];
 
